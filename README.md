@@ -1,10 +1,10 @@
 # Python Wrapper for Smitch APIs
 
-Instantiate the Class Object like this :- 
+```
+# Instantiate the Class Object like this :- 
 smitch = Smitch(API_KEY)
 
-List all the users added to your app like :-
-```
+# List all the users added to your app like :-
 print(smitch.users())
 
 # Instantiate the User Object Like :-
