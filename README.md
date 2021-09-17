@@ -1,5 +1,16 @@
 # Python Wrapper for Smitch APIs
 
+Step 1:-
+Register at : https://developer.mysmitch.com/
+
+Step 2:-
+Get your API KEY
+
+Step 3:-
+Add your account with devices as the tester.
+
+DONE!
+
 ```
 # Instantiate the Class Object like this :- 
 smitch = Smitch(API_KEY)
