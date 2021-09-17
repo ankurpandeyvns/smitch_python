@@ -1,7 +1,4 @@
-# Smitch_python
-
-# TODO
-
+# Python Wrapper for Smitch APIs
 
 Instantiate the Class Object like this :- 
 smitch = Smitch(API_KEY)
