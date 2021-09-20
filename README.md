@@ -26,6 +26,10 @@ device = user.device(device_id)
 
 3 methods to control your bulb :-
 device.on()
+
+or
+
+device.on([r,g,b])
+
 device.off()
-device.change_state(boolean_state_of_desired_result, [r,g,b]) 
 ```
