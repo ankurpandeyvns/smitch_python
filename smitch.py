@@ -100,8 +100,11 @@ class SmitchDevice:
         else:
             print('Some Error Occurred!')
 
-    def on(self):
-        self.change_state(True)
+    def on(self, rgb=None):
+        if rgb:
+            self.change_state(True, rgb)
+        else:     
+            self.change_state(True)        
 
     def off(self):
         self.change_state(False)
