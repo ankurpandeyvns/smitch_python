@@ -30,7 +30,7 @@ Begin by importing the necessary modules and initializing the Smitch class with 
 ```python
 import requests
 import functools
-from your_module import Smitch  # Replace 'your_module' with the actual module name
+from smitch import Smitch 
 
 API_KEY = "Your_API_Key_Here"
 smitch = Smitch(API_KEY)
