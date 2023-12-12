@@ -84,6 +84,9 @@ class SmitchDevice:
         self.user_id = user_id
         self.device_id = device_id
 
+    def name(self):
+        return self.client.get('device/details', {'user_id': self.user_id, 'device_id': self.device_id})['data']['name']
+        
     def change_state(self, state, rgb=None):
         self.payload['commands'][0]['device_settings'] = {
                         "power_status": state
