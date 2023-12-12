@@ -1,93 +1,88 @@
 # Python Wrapper for Smitch APIs Documentation
 
 ## Overview
-This Python wrapper allows you to interact with Smitch APIs, enabling control over various smart devices. 
+This Python wrapper facilitates interaction with Smitch APIs, enabling control over various smart devices such as lights, thermostats, and more.
 
 ## Getting Started
 
 ### Step 1: Register
-First, register at [Smitch Developer Portal](https://developer.mysmitch.com/).
+Sign up at the [Smitch Developer Portal](https://developer.mysmitch.com/) to access the API services.
 
 ### Step 2: API Key
-Obtain your unique API key after registration.
+After registration, obtain your unique API key, which is essential for authenticating API requests.
 
 ### Step 3: Add Tester
-Add your account and link devices to it as a tester.
+Link your Smitch account and devices as a tester to enable direct API interactions with your devices.
 
 ## Installation
 
-Ensure you have Python installed on your system. You can download Python from [python.org](https://www.python.org/).
+Before proceeding, ensure Python is installed on your system. Download it from [python.org](https://www.python.org/). Then, install the `requests` package:
+
+```bash
+pip install requests
+```
 
 ## Usage
 
-### Setting Up
-To begin, import the necessary module and instantiate the Smitch class:
+### Initial Setup
+Begin by importing the necessary modules and initializing the Smitch class with your API key:
 
 ```python
 import requests
 import functools
-from smitch_api_wrapper import Smitch  # Ensure to import the correct class from your module
+from your_module import Smitch  # Replace 'your_module' with the actual module name
 
 API_KEY = "Your_API_Key_Here"
 smitch = Smitch(API_KEY)
 ```
 
 ### Listing Users
-List all the users added to your app:
+Retrieve a list of all users associated with your app:
 
 ```python
-print(smitch.users())
+users = smitch.users()
+print(users)
 ```
 
-### Handling Users and Devices
-Instantiate a User object and Device object as follows:
+### Managing Users and Devices
+Interact with specific users and their devices:
+
+#### Instantiate User Object
 
 ```python
-user_id = "Your_User_Id"
+user_id = "Your_User_Id"  # Replace with an actual user ID
 user = smitch.user(user_id)
+```
 
-device_id = "Your_Device_Id"
+#### Retrieve and Manage Devices
+
+```python
+# Get the list of devices associated with the user
+devices = user.devices()
+
+# Select a device by its ID
+device_id = devices[0]['device_id']  # Adjust index based on your device list
 device = user.device(device_id)
 ```
 
 ### Device Control
-You can control your smart bulb using the following methods:
+Control your smart devices using these methods:
 
-- Turn on the bulb:
-
-  ```python
-  device.on()
-  ```
-
-- Turn on the bulb with RGB color values:
-
-  ```python
-  device.on([r, g, b])  # Replace r, g, b with color values
-  ```
-
-- Turn off the bulb:
-
-  ```python
-  device.off()
-  ```
-
-### Error Handling
-The wrapper includes custom exceptions for handling common errors like invalid API keys.
+#### Turn on the Device
 
 ```python
-class InvalidAPIKeyError(Exception):
-    def __init__(self):
-        super().__init__('The API Key you passed is invalid!')
+device.on()  # Turns on the device
 ```
 
-## Advanced Features
+#### Turn on the Device with RGB Values
 
-- Retrieve detailed user information and device details.
-- Control device traits like brightness, temperature.
-- Manage scenes and automations.
+```python
+r, g, b = 255, 0, 0  # Example RGB values for red color
+device.on([r, g, b])
+```
 
-Refer to the complete class definitions in the wrapper for more details on these features.
+#### Turn off the Device
 
-## Support
-
-For issues, questions, or contributions, please refer to the repository's issue tracker or contact support at [support@mysmitch.com](mailto:support@mysmitch.com).
+```python
+device.off()  # Turns off the device
+```
