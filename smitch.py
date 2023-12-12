@@ -5,11 +5,7 @@ import functools
 def catch_exception(f):
     @functools.wraps(f)
     def func(*args, **kwargs):
-        try:
-            return f(*args, **kwargs)
-        except Exception as e:
-            print('An Exception Occurred! Try Again!')
-            print('Exception: ', e.args[0])
+        return f(*args, **kwargs)
     return func
 
 
@@ -55,6 +51,10 @@ class SmitchUser:
     def __init__(self, client, user_id):
         self.client = client
         self.user_id = user_id
+
+    @catch_exception
+    def details(self):
+        return self.client.get('user', {'user_id': self.user_id})
 
     @catch_exception
     def device(self, device_id):
