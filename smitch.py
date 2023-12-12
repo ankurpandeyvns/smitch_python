@@ -53,8 +53,8 @@ class SmitchUser:
         self.user_id = user_id
 
     @catch_exception
-    def details(self):
-        return self.client.get('user', {'user_id': self.user_id})
+    def devices(self):
+        return self.client.get('user', {'user_id': self.user_id})['data'][0]['user_devices']
 
     @catch_exception
     def device(self, device_id):
