@@ -1,7 +1,7 @@
 # Python Wrapper for Smitch APIs Documentation
 
 ## Overview
-This Python wrapper facilitates interaction with Smitch APIs, enabling control over various smart devices such as lights, thermostats, and more.
+This Python wrapper facilitates interaction with Smitch APIs, enabling control over various smart devices such as lights.
 
 ## Getting Started
 
